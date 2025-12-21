@@ -2,7 +2,7 @@
 	let { score }: { score: number } = $props();
 	let string = $derived(
 		score.toLocaleString('en-US', {
-			minimumIntegerDigits: 3,
+			minimumIntegerDigits: 4,
 			useGrouping: false
 		})
 	);

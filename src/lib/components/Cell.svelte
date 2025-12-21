@@ -30,11 +30,11 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
-<!-- TODO improve class names-->
 <div
 	class="cell"
-	class:forbiddenDestination={pathing_status === CellPathingStatus.Blocked}
-	class:memberOfCurrentPath={pathing_status === CellPathingStatus.Path}
+	class:hasLetter={!!letter}
+	class:blocked={pathing_status === CellPathingStatus.Blocked}
+	class:path={pathing_status === CellPathingStatus.Path}
 	{onclick}
 	{onmouseover}
 	style:grid-row={y + 1}
@@ -64,11 +64,15 @@
 		background-color: white;
 	}
 
-	.cell.forbiddenDestination {
+	.cell.blocked {
 		background-color: rgb(223, 223, 223);
 	}
 
-	.cell.memberOfCurrentPath {
+	.cell.path {
 		background-color: var(--grid-path-color-primary);
+	}
+
+	.cell.hasLetter {
+		cursor: pointer;
 	}
 </style>
